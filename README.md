@@ -8,6 +8,7 @@ Workflow:
 - Once Calc clicked, invokes server calls Node and spawns a child process
 - Invokes Python script (from child process)
 - And plots the charts 
+- Saves the historic data on MongoDB (using mongoose libs)
 
 Tech Stack
 -----------
@@ -15,4 +16,4 @@ Tech Stack
 - Controls: ngHandson/Hotable, 
 - Server: NodeJS/Express
 - Core: Python
-- 
+- DB: MongoDB
