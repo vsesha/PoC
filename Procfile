@@ -1,1 +1,1 @@
-web: node marginserver.js
+web: node index.js $PORT
