@@ -12,7 +12,7 @@ var HTTP_404_ 			= require('./routes/HTTP_404')
 
 
 var expressApp = express();
-	expressApp.set('port', (process.env.SERVER_PORT || 6000));
+	expressApp.set('port', (process.env.PORT || 6000));
 	
 	expressApp.use(express.static(__dirname + '/'));
 
