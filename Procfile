@@ -1,1 +1,1 @@
-web: node marginserver.js $PORT
+web: node marginserver.js PROD

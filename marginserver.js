@@ -1,5 +1,5 @@
 'use static'
-//var http 	= require('http');
+
 var express 	= require('express');
 var bodyparser	= require('body-parser')
 var logger		= require('morgan');
@@ -10,13 +10,29 @@ var marginHistData 		= require('./routes/handlemarginrunhistory')
 var home 				= require('./routes/home')
 var HTTP_404_ 			= require('./routes/HTTP_404')
 
+var _ENV;
+
+if (process.argv.length<3){
+	console.log("Too few parameters. Supply Run Environment");
+ 	process.exit();
+}
+
+_ENV = process.argv[2]. toUpperCase();
+
+if (!(_ENV == "DEV") && !(_ENV=="PROD")){
+	console.log("Invalid Environemnt. Possible values DEV or PROD");
+ 	process.exit();
+}
+	
+
+module.exports = _ENV;
 
 var expressApp = express();
 	expressApp.set('port', (process.env.PORT || 6000));
 	
 	expressApp.use(express.static(__dirname + '/'));
 
-//For avoidong Heroku $PORT error
+	//to avoid  $PORT error when hosting at Heroku
 	expressApp.get('/', function(request, response) {
 		var result = 'App is running'
 		response.send(result);
@@ -31,10 +47,6 @@ var expressApp = express();
 	marginHistData(expressApp);
 	home(expressApp);
 	HTTP_404_(expressApp);
-
-
-//http.createServer (expressApp).listen(port) ;
-
 
 expressApp.listen(expressApp.get('port'), function() {
   console.log('MarginServer is running on port', expressApp.get('port'));
