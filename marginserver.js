@@ -1,8 +1,8 @@
 'use static'
 //var http 	= require('http');
-var express = require('express');
+var express 	= require('express');
 var bodyparser	= require('body-parser')
-var logger	= require('morgan');
+var logger		= require('morgan');
 
 var forAllPage 			= require('./routes/defaultForAll')
 var marginData 			= require('./routes/getmargins')
@@ -14,7 +14,7 @@ var HTTP_404_ 			= require('./routes/HTTP_404')
 var expressApp = express();
 	expressApp.set('port', (process.env.SERVER_PORT || 6000));
 	
-	expressApp.use(express.static(__dirname + '/routes'));
+	expressApp.use(express.static(__dirname + '/'));
 
 //For avoidong Heroku $PORT error
 	expressApp.get('/', function(request, response) {
