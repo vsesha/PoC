@@ -6,7 +6,7 @@ var logger		= require('morgan');
 
 var forAllPage 			= require('./routes/defaultForAll')
 var marginData 			= require('./routes/getmargins')
-var marginHistData 		= require('./routes/handlemarginrunhistory')
+//var marginHistData 		= require('./routes/handlemarginrunhistory')
 var home 				= require('./routes/home')
 var HTTP_404_ 			= require('./routes/HTTP_404')
 
@@ -28,7 +28,7 @@ var expressApp = express();
 	expressApp.use(bodyparser.json());
 	forAllPage(expressApp);
 	marginData(expressApp);
-	marginHistData(expressApp);
+	//marginHistData(expressApp);
 	home(expressApp);
 	HTTP_404_(expressApp);
 
