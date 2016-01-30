@@ -1,8 +1,15 @@
 'use strict'
 var FullRecSet =[];
 var mongoose	= require('mongoose');
-mongoose.connect('mongodb://localhost/MarginsDB');
 
+//var mongodb_loc = (process.env.MONGOLAB_URI) || ('mongodb://localhost/MarginsDB');
+var mongodb_loc = 'mongodb://vasuops:Yokohama3@ds051615.mongolab.com:51615/marginsdb';
+mongoose.connect(mongodb_loc, function (error) {
+	console.log("Attempting to connect to MongoDB - "+mongodb_loc);
+    if (error) console.error(error);
+    else console.log('mongo connected');
+});
+// mongodb://vasuops@gmail.com:Yokohama3@ds051615.mongolab.com:51615/marginsdb
 var HistroySchema = new mongoose.Schema({
 	rundate:			{type: Date, default:Date.now},
 	inputparameters:	Array,
