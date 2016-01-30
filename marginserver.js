@@ -13,6 +13,8 @@ var HTTP_404_ 			= require('./routes/HTTP_404')
 
 var expressApp = express();
 	expressApp.set('port', (process.env.SERVER_PORT || 6000));
+	
+	expressApp.use(express.static(__dirname + '/routes'));
 
 //For avoidong Heroku $PORT error
 	expressApp.get('/', function(request, response) {
@@ -20,7 +22,7 @@ var expressApp = express();
 		response.send(result);
 	});
 
-	expressApp.use(express.static(__dirname + '/'));
+	
 	expressApp.use(logger("dev"))
 	expressApp.use(bodyparser.urlencoded({extended: true}));
 	expressApp.use(bodyparser.json());
