@@ -2,10 +2,10 @@
   "name": "marginsapp",
   "version": "1.0.0",
   "description": "Margins App server",
-  "main": "index.js",
+  "main": "marginserver.js",
   "scripts": {
     "test":  "node marginserver.js",
-    "start": "node index.js"
+    "start": "node marginserver.js"
   },
   "repository": {
     "type": "git",
