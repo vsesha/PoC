@@ -50,7 +50,7 @@ function CalculateMargins(inputData){
 			  {Portfolio: 'SSHB-DRV-CEFL', InstrumentID: 'FMRV-14USAA', Quantity: 100, FinType: 'IRS'},
 			];
 
-			var process = spawn('python',["../Core/CalcEngine.py", inputData]);
+			var process = spawn('python',["CoreCalc/CalcEngine.py", inputData]);
 			process.stdout.on('data', function (data){
 				resolve(data);	
 			});	
