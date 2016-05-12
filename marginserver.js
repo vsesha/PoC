@@ -28,9 +28,11 @@ if (!(_ENV == "DEV") && !(_ENV=="PROD")){
 module.exports = _ENV;
 
 var expressApp = express();
-	expressApp.set('port', (process.env.PORT || 6000));
-	
+	expressApp.set('port', (process.env.PORT || 8000));
+	console.log("__direname="+__dirname);
 	expressApp.use(express.static(__dirname + '/'));
+	expressApp.use(express.static(__dirname + '/app'));
+
 
 	//to avoid  $PORT error when hosting at Heroku
 	expressApp.get('/', function(request, response) {
