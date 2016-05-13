@@ -22,7 +22,7 @@ function serviceFunction( $http, $q,appconfigs)
 	{
 		var defer = $q.defer();
 		console.log("env var="+JSON.stringify(appconfigs.endpoint));
-		//$http.get("https://marginserver.herokuapp.com/getmargins")
+		///$http.get("https://marginserver.herokuapp.com/getmargins")
 		$http.get(appconfigs.endpoint+"getmargins")
   		.then(function (response) {
 	  		defer.resolve( response.data) },
@@ -80,7 +80,6 @@ function serviceFunction( $http, $q,appconfigs)
 	function getMarginRunHistroy()
 	{
 		var defer = $q.defer();
-
 		//$http.get("https://marginserver.herokuapp.com/getmarginrunhistory")
 		$http.get(appconfigs.endpoint+"getmarginrunhistory")
   		.then(function (response) {

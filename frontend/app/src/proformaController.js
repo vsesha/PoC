@@ -58,7 +58,8 @@
 			return true;
 		}
 		
-			
+
+		
 		ctrl.getPortfolio = function(){
 			var validate =ctrl.validateInputs();
 			if (validate==false)

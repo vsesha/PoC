@@ -1,3 +1,3 @@
 angular.module('ProformaApp').constant('appconfigs', {
-  endpoint: 'https://marginserver.herokuapp.com/'
+  endpoint: 'http://localhost:8000/'
 });
