@@ -1,0 +1,72 @@
+<html ng-app="ProformaApp">
+
+<head>
+	<title>Margins Proforma</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<link rel="stylesheet" href="dist/css/bootstrap.min.css">
+	<link rel="stylesheet" href="dist/css/handsontable.full.css">
+	<link rel="stylesheet" type="text/css" href="dist/css/dc.css"/>
+	<link rel="shortcut icon" href="imgs/dollar.jpg">
+	<link rel="stylesheet" href="css/app.css">
+</head>
+
+<nav class="navbar navbar-default">
+  <div class="container-fluid"> 
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" 
+			  data-toggle="collapse" 
+			  data-target="#bs-example-navbar-collapse-1" 
+			  aria-expanded="false">
+        <span class="sr-only">Toggle for navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+ 		<ul class="nav navbar-nav navbar-left">
+        <img src="imgs/dollar.jpg" class="img-circle" width="50" height="50" > </ul>
+            <a class="navbar-brand" href="http://margincallmovie.com/">&nbsp;MARGINS </a>
+		
+    </div>
+ 
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <!--<li class="active"><a href="#">Proforma <span class="sr-only">(current)</span></a></li>-->
+        <li><a ui-sref="Proforma">Proforma</a></li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" 
+			 data-toggle="dropdown" 
+			 role="button" 
+			 aria-haspopup="true" 
+			 aria-expanded="false">Manage <span class="caret"></span></a>
+ 			<ul class="dropdown-menu">
+            <li><a ui-sref="Home">Home</a></li>
+            <li><a ui-sref="Products">Products</a></li>
+            <li role="separator" class="divider"></li>
+            <li><a ui-sref="CounterParty">Counterparty</a></li>
+          </ul>
+			
+        </li>
+      </ul>
+
+      <ul class="nav navbar-nav navbar-right">
+		<li><a ui-sref="Settings">Help</a></li>
+        <li><a ui-sref="Logout">Logout</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<body>
+	<div class="container">
+		<div ui-view></div>
+	</div>
+
+</body>
+	<script src="dist/js/vendor.js"></script>
+	<script >$('[data-toggle="popover"]').popover();</script>
+	<script src="dist/js/main.js"></script>
+	<script src="dist/js/config.js"></script>
+</html>
