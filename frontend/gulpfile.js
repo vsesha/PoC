@@ -25,7 +25,7 @@ gulp.task('buildconfig', function() {
 			throw 'NODE_ENV is not set or incorrect'
 		}
 		return gulp.src(['env/'+process.env.NODE_ENV+'.js'])
-		//.pipe(git.add())
+		.pipe(git.add())
 		.pipe(plugins.concat('config.js'))
 		.pipe(gulp.dest('./app/dist/configs/'));
 	}
@@ -48,7 +48,7 @@ gulp.task('buildvendorjs', function() {
 					 'thirdparty/crossfilter.js',
 					 'thirdparty/dc.js'
 					])
-	//.pipe(git.add())
+	.pipe(git.add())
  	//.pipe(plugins.uglify())
 	.pipe(plugins.concat('vendor.js'))
  	.pipe(gulp.dest('./app/dist/js/'));
@@ -57,8 +57,8 @@ gulp.task('buildvendorjs', function() {
 
 gulp.task('watchdog',['gitinit','buildapp'],function(){
 	try{
-		gulp.watch('env/*.js',			['buildconfig','gitadd','gitcommit','gitstatus']);
-		gulp.watch('app/src/**/*.js',	['buildapp']);
+		gulp.watch('env/*.js',			['buildconfig','gitadd','gitcommit','gitstatus','gitpush']);
+		gulp.watch('app/src/**/*.js',	['buildapp','gitadd','gitcommit','gitstatus','gitpush']);
 	}
 	catch( exception){
 		console.log("Build/Deployment stopped for follwing reason(s):\n\n"+exception);
@@ -81,11 +81,19 @@ gulp.task('gitaddremote', function(){
 });
 
 gulp.task('gitcommit', function(){
-  //git.commit('auto commit');
+  git.commit('Gulp-Git commit');
 });
+
+gulp.task('gitpush', function(){
+  git.push('origin', 'master', function (err) {
+    if (err) throw err;
+  });
+});
+
 gulp.task('gitstatus', function(){
   git.status({args: '--porcelain'}, function (err, stdout) {
     if (err) throw err;
   });
 });
+
 gulp.task('default',['watchdog']);
