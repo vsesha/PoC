@@ -8,7 +8,7 @@ gulp.task('buildapp',['buildconfig','buildvendorjs'], function() {
 	
 	return gulp.src(['app/src/**/*Module.js','app/src/**/*.js'])
 	//return gulp.src(['app/src/**/*Module.js','env','app/src/**/*.js'])
-	//.pipe(git.add())
+	.pipe(git.add())
  	.pipe(plugins.uglify())
 	.pipe(plugins.concat('main.js'))
  	.pipe(gulp.dest('./app/dist/js/'));
