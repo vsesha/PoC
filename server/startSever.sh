@@ -34,10 +34,18 @@ startNodeServer(){
 	then
 		echo "Starting marginserver"
 		cd $MRGSRV_PATH
-		node marginserver.js PROD&
+		node marginserver.js DEV&
 	fi
 }
 
+exitOnceDone()
+{
+  ps
+  echo "Looks like all up, am done";
+  exit;
+  exit;
+}
 setEnvironment 
 startMongodb 
 startNodeServer
+exitOnceDone
